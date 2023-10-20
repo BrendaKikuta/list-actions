@@ -1,0 +1,13 @@
+@import '../shared/styles/colors.scss';
+
+.stock-exchanges {
+  padding-top: 120px;
+
+  h2 {
+    color: $firefly;
+    font-size: 42px;
+    font-style: normal;
+    line-height: normal;
+    font-weight: 700;
+  }
+}

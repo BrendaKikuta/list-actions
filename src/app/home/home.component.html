@@ -1,6 +1,7 @@
+<ng-container *ngIf="loading">
+  <app-loader></app-loader>
+</ng-container>
 <ng-container>
   <app-header></app-header>
-</ng-container>
-  <ng-container *ngIf="!loading">
-  <app-loader></app-loader>
+  <app-stock-exchanges></app-stock-exchanges>
 </ng-container>
