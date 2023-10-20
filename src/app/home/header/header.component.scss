@@ -1,0 +1,13 @@
+@import '../../shared/styles/colors.scss';
+
+.header {
+  background-color: $firefly;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 30px 80px;
+}

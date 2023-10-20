@@ -5,7 +5,7 @@ const routeConfig: Routes = [
     {
       path: '',
       component: HomeComponent,
-      title: 'AmazonIA'
+      title: 'Explore o Mercado'
     },
   ];
   
