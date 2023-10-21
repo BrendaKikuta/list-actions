@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { ExchangeCardComponent } from './exchange-card/exchange-card.component';
+import { StockExchangesService } from './stock-exchanges.service';
 
 @Component({
   standalone: true,
@@ -11,6 +12,18 @@ import { ExchangeCardComponent } from './exchange-card/exchange-card.component';
   styleUrls: ['./stock-exchanges.component.scss']
 })
 
-export class StockExchangesComponent {
+export class StockExchangesComponent implements OnInit {
   stockExchanges: []
+
+  constructor(private stockExchangesService: StockExchangesService) {}
+
+  ngOnInit(): void {
+    this.getQuotes()
+  }
+
+  getQuotes() {
+    this.stockExchangesService.getQuotes().subscribe(response => {
+      console.log(response)
+    })
+  }
 }

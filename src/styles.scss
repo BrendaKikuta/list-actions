@@ -2,3 +2,9 @@
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+
+p, span {
+  font-style: normal;
+  line-height: normal;
+  font-weight: 500;
+}
