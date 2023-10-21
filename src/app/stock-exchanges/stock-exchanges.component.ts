@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
+import { Exchange } from './exchanges.interface';
 import { ExchangeCardComponent } from './exchange-card/exchange-card.component';
 import { StockExchangesService } from './stock-exchanges.service';
 
@@ -13,7 +14,7 @@ import { StockExchangesService } from './stock-exchanges.service';
 })
 
 export class StockExchangesComponent implements OnInit {
-  stockExchanges: []
+  stockExchanges: Array<Exchange>
 
   constructor(private stockExchangesService: StockExchangesService) {}
 
@@ -23,7 +24,9 @@ export class StockExchangesComponent implements OnInit {
 
   getQuotes() {
     this.stockExchangesService.getQuotes().subscribe(response => {
-      console.log(response)
+      this.stockExchanges = response
+    }, error => {
+      console.warn(error)
     })
   }
 }
