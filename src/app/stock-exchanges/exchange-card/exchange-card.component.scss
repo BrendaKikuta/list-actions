@@ -1,0 +1,94 @@
+@import '../../shared/styles/colors.scss';
+
+.exchange-card {
+  height: 290px;
+  max-width: 256px;
+  border: 1px solid $cornflower;
+  background: $white;
+  padding: 32px 40px 0px 32px;
+  margin-right: 18px;
+  position: relative;
+
+  .exchange-card--info {
+    .exchange-card--info__header {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      span {
+        color: $osloGray;
+        font-size: 12px;
+      }
+    }
+
+    .exchange-card--info__body {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+
+      p {
+        color: $firefly;
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+
+      span {
+        color: $malachite;
+        font-size: 24px;
+        position: relative;
+        font-weight: 600;
+
+        &::after {
+          font-family: 'FontAwesome';
+          content: '\f062';
+          font-size: 12px;
+          font-weight: 100;
+          margin-left: 6px;
+          position: absolute;
+          bottom: 8px;
+        }
+
+        &.low {
+          color: $pomegranate;
+
+          &::after {
+            font-family: 'FontAwesome';
+            content: '\f063';
+          }
+        }
+      }
+    }
+  }
+
+  .exchange-card--chart-border {
+    position: absolute;
+    left: 0;
+    bottom: 23px;
+    width: 100%;
+  }
+
+  .exchange-card--chart {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .exchange-card {
+    width: 205px;
+    margin-right: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .exchange-card {
+    max-width: unset;
+    width: 100%;
+    margin-right: 0px;
+  }
+}

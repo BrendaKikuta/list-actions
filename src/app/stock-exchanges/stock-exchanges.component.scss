@@ -1,0 +1,102 @@
+@import '../shared/styles/colors.scss';
+
+.stock-exchanges {
+  padding-top: 120px;
+  
+  .stock-exchanges--header {
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    h2 {
+      color: $firefly;
+      font-size: 42px;
+      font-style: normal;
+      line-height: normal;
+      font-weight: 700;
+    }
+
+    .stock-exchanges--header__filter {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      span {
+        color: $osloGray;
+        font-size: 14px;
+        font-weight: 400;
+        margin-right: 16px;
+      }
+
+      button {
+        border: none;
+        width: 122px;
+        height: 35px;
+        border-radius: 100px;
+        background: $cerulean;
+        color: $white;
+
+        &:first-child {
+          margin-right: 8px;
+        }
+
+        &.inactive {
+          background-color: $porcelain;
+          color: $osloGray;
+        }
+      }
+    }
+  }
+
+  .stock-exchanges--body {
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .stock-exchanges {
+    .stock-exchanges--header {
+      margin-bottom: 30px;
+      
+      h2 {
+        font-size: 32px;
+      }
+    }
+
+    .stock-exchanges--body {
+      padding: 0px 28px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .stock-exchanges {
+    padding-top: 110px;
+
+    .stock-exchanges--header {
+      margin-bottom: 42px;
+      flex-direction: column;
+      align-items: start;
+  
+      h2 {
+        font-size: 24px;
+        margin-bottom: 42px;
+      }
+
+      .stock-exchanges--header__filter {
+        flex-direction: column;
+        align-items: start;
+
+        span {
+          margin-bottom: 16px;
+        }
+      }
+    }
+
+    .stock-exchanges--body {
+      padding: 0px;
+    }
+  }
+}

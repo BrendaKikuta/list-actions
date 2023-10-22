@@ -1,0 +1,15 @@
+  <div *ngFor="let exchange of orderBy()" class="exchange-card col-md-3 col-sm-12 mb-4">
+  <img src="../../../assets/images/ativo-logo.png" alt="">
+  <div class="exchange-card--info">
+    <div class="exchange-card--info__header">
+      <span>AES Eletropaulo</span>
+      <span>{{exchange?.name}}</span>
+    </div>
+    <div class="exchange-card--info__body">
+      <p>Preço do ativo</p>
+      <span class="price" [ngClass]="{'low': exchange?.price < 2}">{{'R$ ' + exchange?.price}}</span>
+    </div>
+  </div>
+  <img class="exchange-card--chart-border" src="../../../assets/images/chart-border.svg" alt="">
+  <img class="exchange-card--chart" src="../../../assets/images/chart.svg" alt="">
+</div>
