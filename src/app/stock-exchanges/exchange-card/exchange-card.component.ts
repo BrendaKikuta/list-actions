@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import * as ApexCharts from 'apexcharts';
 import { Exchange } from '../exchanges.interface';
 import { CommonModule } from '@angular/common';
 
@@ -13,69 +12,20 @@ import { CommonModule } from '@angular/common';
 
 export class ExchangeCardComponent implements OnInit {
   @Input() stockExchanges: Array<Exchange>
+  @Input() order: string
 
   ngOnInit(): void {
-    this.generateChart();
+    this.orderBy()
   }
 
-  generateChart(): void {
-    const options = {
-      chart: {
-        type: 'area',
-        toolbar: {
-          show: false,
-        },
-      },
-      dataLabels: {
-        enabled: false,
-      },
-      grid: {
-        clipMarkers: false,
-        yaxis: {
-          lines: {
-            show: false,
-          },
-        },
-      },
-      series: [
-        {
-          name: 'Series 1',
-          data: [45, 52, 38, 45, 19, 23, 2],
-        },
-      ],
-      fill: {
-        type: 'solid',
-        opacity: 0.2,
-        gradient: {
-          shadeIntensity: 1,
-          opacityFrom: 0.7,
-          opacityTo: 0.9,
-          stops: [0, 90, 100],
-        },
-      },
-      yaxis: {
-        labels: {
-          show: false,
-        },
-      },
-      xaxis: {
-        labels: {
-          show: false,
-        },
-        categories: [
-          '01 Jan',
-          '02 Jan',
-          '03 Jan',
-          '04 Jan',
-          '05 Jan',
-          '06 Jan',
-          '07 Jan',
-        ],
-      },
-    };
+  orderBy(): Array<Exchange> {
+    if (!this.order) return this.stockExchanges
 
-    const chart = new ApexCharts(document.querySelector('#chart'), options);
-
-    chart.render();
+    switch (this.order) {
+      case 'asc': 
+        return this.stockExchanges.sort((firstQuote, secondQuote) => firstQuote['price'] > secondQuote['price'] ? 1 : firstQuote['price'] === secondQuote['price'] ? 0 : -1);
+      default:
+        return this.stockExchanges.sort((firstQuote, secondQuote) => firstQuote['price'] < secondQuote['price'] ? 1 : firstQuote['price'] === secondQuote['price'] ? 0 : -1); 
+    }
   }
 }

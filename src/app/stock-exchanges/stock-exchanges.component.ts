@@ -15,6 +15,7 @@ import { StockExchangesService } from './stock-exchanges.service';
 
 export class StockExchangesComponent implements OnInit {
   stockExchanges: Array<Exchange>
+  order: string
 
   constructor(private stockExchangesService: StockExchangesService) {}
 
@@ -22,11 +23,15 @@ export class StockExchangesComponent implements OnInit {
     this.getQuotes()
   }
 
-  getQuotes() {
+  getQuotes(): void {
     this.stockExchangesService.getQuotes().subscribe(response => {
       this.stockExchanges = response
     }, error => {
       console.warn(error)
     })
+  }
+
+  setOrder(value: string): void {
+    this.order = value
   }
 }

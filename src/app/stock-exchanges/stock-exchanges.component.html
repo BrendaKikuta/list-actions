@@ -4,12 +4,12 @@
     <div class="stock-exchanges--header__filter">
       <span>Ordenar:</span>
       <div class="filter-options">
-        <button>Em Alta</button>
-        <button class="inactive">Em Baixa</button>
+        <button (click)="setOrder('asc')">Em Alta</button>
+        <button class="inactive" (click)="setOrder('desc')">Em Baixa</button>
       </div>
     </div>
   </div>
   <div class="stock-exchanges--body">
-    <app-exchange-card class="row" [stockExchanges]="stockExchanges"></app-exchange-card>
+    <app-exchange-card class="row" [stockExchanges]="stockExchanges" [order]="order"></app-exchange-card>
   </div>
 </div>

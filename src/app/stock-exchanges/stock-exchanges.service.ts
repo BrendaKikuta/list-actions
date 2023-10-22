@@ -15,9 +15,8 @@ export class StockExchangesService {
     return new Observable(subscriber => {
       subject.subscribe(response => {
         exchanges.push(response)
-        console.log(response)
   
-        if (exchanges.length > 10) {
+        if (exchanges.length > 15) {
           subject.complete()
           subscriber.next(this.prepareData(exchanges))
           subscriber.complete()

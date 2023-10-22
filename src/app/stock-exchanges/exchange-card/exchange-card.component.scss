@@ -41,25 +41,54 @@
         position: relative;
         font-weight: 600;
 
-        i {
+        &::after {
+          font-family: 'FontAwesome';
+          content: '\f062';
           font-size: 12px;
+          font-weight: 100;
+          margin-left: 6px;
           position: absolute;
-          left: 98px;
           bottom: 8px;
+        }
+
+        &.low {
+          color: $pomegranate;
+
+          &::after {
+            font-family: 'FontAwesome';
+            content: '\f063';
+          }
         }
       }
     }
   }
 
+  .exchange-card--chart-border {
+    position: absolute;
+    left: 0;
+    bottom: 23px;
+    width: 100%;
+  }
+
   .exchange-card--chart {
     position: absolute;
-    left: -23px;
-    bottom: -30px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .exchange-card {
+    width: 205px;
+    margin-right: 8px;
   }
 }
 
 @media (max-width: 768px) {
   .exchange-card {
     max-width: unset;
+    width: 100%;
+    margin-right: 0px;
   }
 }
