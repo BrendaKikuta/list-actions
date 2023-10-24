@@ -13,7 +13,7 @@ import { StockExchangesComponent } from '../stock-exchanges/stock-exchanges.comp
 })
 
 export class HomeComponent {
-  loading: boolean = false
+  loading: boolean = true
 
   getLoading(): void {
     this.loading = false

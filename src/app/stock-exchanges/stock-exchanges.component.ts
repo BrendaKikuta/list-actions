@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 import { Exchange } from './exchanges.interface';
 import { ExchangeCardComponent } from './exchange-card/exchange-card.component';
@@ -14,6 +14,8 @@ import { StockExchangesService } from './stock-exchanges.service';
 })
 
 export class StockExchangesComponent implements OnInit {
+  @Output() finishLoading: EventEmitter<boolean> = new EventEmitter<boolean>(false)
+
   stockExchanges: Array<Exchange>
   order: string
 
@@ -26,7 +28,9 @@ export class StockExchangesComponent implements OnInit {
   getQuotes(): void {
     this.stockExchangesService.getQuotes().subscribe(response => {
       this.stockExchanges = response
+      this.finishLoading.emit(true)
     }, error => {
+      this.finishLoading.emit(true)
       console.warn(error)
     })
   }
